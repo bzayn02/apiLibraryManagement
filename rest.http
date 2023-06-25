@@ -1,6 +1,44 @@
 //////////////////////////------APIs------/////////////////////
 
+@rootAPI = http://localhost:8000
+@userAPI = {{rootAPI}}/api/v1/user
+
 ### Server Testing
-GET http://localhost:8000
+GET {{rootAPI}}
+
+
+### -------------- USER APIS ------------###
+### Get user
+GET {{userAPI}}
+
+### Adding users
+POST {{userAPI}}
+Content-Type: application/json
+
+{
+    "fname":"Sam",
+    "lname":"Smith",
+    "phone":"273737374",
+    "address":"Somewhere on Earth",
+    "email":"same@emafdeail.com",
+    "password":"1234567",
+    "role":"admin"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+### -------------- BOOK APIS ------------###
+
+
 
 
