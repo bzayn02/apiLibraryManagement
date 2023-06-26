@@ -4,6 +4,7 @@ import express from 'express';
 import morgan from 'morgan';
 import userRouter from './src/routers/userRouter.js';
 import connectMongoDB from './src/config/mongoDB.js';
+import cors from 'cors';
 
 const app = express();
 
@@ -16,6 +17,7 @@ connectMongoDB();
 // Middlewares
 app.use(express.json());
 app.use(morgan('tiny'));
+app.use(cors());
 
 // APIs
 app.use('/api/v1/user', userRouter);

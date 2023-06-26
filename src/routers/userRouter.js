@@ -1,17 +1,21 @@
 import express from 'express';
-import { createUser } from '../models/user/UserModel.js';
+import { createUser, getUser } from '../models/user/UserModel.js';
 import { hashPassword } from '../util/bcrypt.js';
 
 const router = express.Router();
 
 // fetching users
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
+    const result = await getUser();
+
     res.json({
       status: 'success',
       message: 'Here are the user informations.',
+      data: result,
     });
   } catch (error) {
+    console.log(error.message);
     res.json({
       status: 'error',
       message: 'Unable to get user informations.',
@@ -48,6 +52,23 @@ router.post('/', async (req, res) => {
       message: msg,
     });
   }
+});
+
+// Login user
+
+router.post('/', (req, res) => {
+  const { email, password } = req.body;
+  const hashPass = hashPassword(password);
+  if (hashPass === password) {
+    res.json({
+      status: 'success',
+      message: 'Login successful.',
+    });
+  }
+  res.json({
+    status: 'error',
+    message: 'Unable to login.',
+  });
 });
 
 export default router;
