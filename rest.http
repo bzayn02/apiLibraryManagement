@@ -20,18 +20,18 @@ Content-Type: application/json
     "lname":"Smith",
     "phone":"273737374",
     "address":"Somewhere on Earth",
-    "email":"same@emafdeail.com",
+    "email":"bijay@email.com",
     "password":"1234567",
     "role":"admin"
 }
 
 ### Login user
-POST {{userAPI}}
+POST {{userAPI}}/login
 Content-Type: application/json
 
 {
-    "email":"same@emafdeail.com",
-    "password":"1234567"
+    "email":"bijay@email.com",
+    "password":"12345675"
 }
 
 

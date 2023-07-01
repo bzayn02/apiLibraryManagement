@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
   role: {
     type: String,
     required: true,
-    default: 'student',
+    default: 'admin',
   },
   fname: {
     type: String,

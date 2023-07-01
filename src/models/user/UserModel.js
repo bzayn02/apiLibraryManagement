@@ -7,3 +7,7 @@ export const createUser = (userObj) => {
 export const getUser = () => {
   return UserSchema.find();
 };
+
+export const getUserByEmail = (email) => {
+  return UserSchema.findOne({ email });
+};
