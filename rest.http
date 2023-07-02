@@ -2,6 +2,7 @@
 
 @rootAPI = http://localhost:8000
 @userAPI = {{rootAPI}}/api/v1/user
+@bookAPI = {{rootAPI}}/api/v1/book
 
 ### Server Testing
 GET {{rootAPI}}
@@ -36,6 +37,11 @@ Content-Type: application/json
 
 
 
+
+### -------------- BOOK APIS ------------###
+
+###
+GET {{bookAPI}}
 
 
 

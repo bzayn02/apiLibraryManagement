@@ -3,6 +3,7 @@ dotenv.config();
 import express from 'express';
 import morgan from 'morgan';
 import userRouter from './src/routers/userRouter.js';
+import bookRouter from './src/routers/bookRouter.js';
 import connectMongoDB from './src/config/mongoDB.js';
 import cors from 'cors';
 
@@ -20,7 +21,12 @@ app.use(morgan('tiny'));
 app.use(cors());
 
 // APIs
+
+// User Router
 app.use('/api/v1/user', userRouter);
+
+// Book Router
+app.use('/api/v1/book', bookRouter);
 
 // Root URL server testing
 app.use('/', (req, res) => {
