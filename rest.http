@@ -4,6 +4,8 @@
 @userAPI = {{rootAPI}}/api/v1/user
 @bookAPI = {{rootAPI}}/api/v1/book
 
+@borrowAPI = {{bookAPI}}/borrow
+
 ### Server Testing
 GET {{rootAPI}}
 
@@ -43,7 +45,20 @@ Content-Type: application/json
 ###
 GET {{bookAPI}}
 
+### -------------- BOOK BORROW APIS ------------###
 
+### Create new borrow record
+POST {{borrowAPI}}
+Content-Type: application/json
+
+{
+    "bookID":"dkjfadkfjakfjakfj",
+    "thumbnail":"http://...",
+    "bookName":"JS",
+    "userID":"dkfjdkafdkf",
+    "userName":"Bijay Nagarkoti",
+    "returnDate":"2023-12-12"
+}
 
 
 

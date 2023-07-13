@@ -4,6 +4,7 @@ import express from 'express';
 import morgan from 'morgan';
 import userRouter from './src/routers/userRouter.js';
 import bookRouter from './src/routers/bookRouter.js';
+import borrowRouter from './src/routers/borrowRouter.js';
 import connectMongoDB from './src/config/mongoDB.js';
 import cors from 'cors';
 
@@ -24,6 +25,9 @@ app.use(cors());
 
 // User Router
 app.use('/api/v1/user', userRouter);
+
+// Borrow Router
+app.use('/api/v1/book/borrow', borrowRouter);
 
 // Book Router
 app.use('/api/v1/book', bookRouter);
