@@ -5,7 +5,7 @@ export const addBorrow = (borrowObj) => {
 };
 
 // For Admin to get all borrows
-export const getBorrows = () => {
+export const getAllBorrows = () => {
   return BorrowSchema.find();
 };
 // For user to get all borrows

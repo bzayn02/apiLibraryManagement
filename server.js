@@ -17,6 +17,7 @@ const PORT = process.env.PORT || 8000;
 connectMongoDB();
 
 // Middlewares
+import { auth } from './src/middlewares/authMiddleware.js';
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use(cors());
@@ -27,7 +28,7 @@ app.use(cors());
 app.use('/api/v1/user', userRouter);
 
 // Borrow Router
-app.use('/api/v1/book/borrow', borrowRouter);
+app.use('/api/v1/book/borrow', auth, borrowRouter);
 
 // Book Router
 app.use('/api/v1/book', bookRouter);

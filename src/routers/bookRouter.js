@@ -5,6 +5,7 @@ import {
   getBooks,
   updateBook,
 } from '../models/book/BookModel.js';
+import { auth, isAdminAuth } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
@@ -24,7 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, isAdminAuth, async (req, res) => {
   try {
     console.log(req.body);
     const book = await addBook(req.body);
@@ -44,7 +45,7 @@ router.post('/', async (req, res) => {
     });
   }
 });
-router.put('/', async (req, res) => {
+router.put('/', auth, isAdminAuth, async (req, res) => {
   try {
     const { _v, _id, ...rest } = req.body;
     const book = await updateBook(_id, rest);
@@ -65,7 +66,7 @@ router.put('/', async (req, res) => {
   }
 });
 
-router.delete('/:_id', async (req, res) => {
+router.delete('/:_id', auth, isAdminAuth, async (req, res) => {
   try {
     const { _id } = req.params;
 
