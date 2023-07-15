@@ -5,18 +5,19 @@ import {
   getUserByEmail,
 } from '../models/user/UserModel.js';
 import { comparePassword, hashPassword } from '../util/bcrypt.js';
+import { auth, isAdminAuth } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
 // fetching users
-router.get('/', async (req, res) => {
+router.get('/', auth, isAdminAuth, async (req, res) => {
   try {
     const result = await getUser();
 
     res.json({
       status: 'success',
       message: 'Here are the user informations.',
-      data: result,
+      usersData: result,
     });
   } catch (error) {
     console.log(error.message);

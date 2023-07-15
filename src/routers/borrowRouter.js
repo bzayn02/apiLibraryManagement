@@ -72,7 +72,7 @@ router.put('/', async (req, res) => {
     const putBorrow = await updateBorrow(borrowID, {
       dueDate: null,
       isReturned: true,
-      returnDate: Date().slice(0, 10),
+      returnDate: Date(),
     });
     if (putBorrow?._id) {
       // Update borrow table
