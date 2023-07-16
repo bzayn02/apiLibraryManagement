@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import userRouter from './src/routers/userRouter.js';
 import bookRouter from './src/routers/bookRouter.js';
 import borrowRouter from './src/routers/borrowRouter.js';
+import reviewRouter from './src/routers/reviewRouter.js';
 import connectMongoDB from './src/config/mongoDB.js';
 import cors from 'cors';
 
@@ -32,6 +33,9 @@ app.use('/api/v1/book/borrow', auth, borrowRouter);
 
 // Book Router
 app.use('/api/v1/book', bookRouter);
+
+// Review Router
+app.use('/api/v1/review', reviewRouter);
 
 // Root URL server testing
 app.use('/', (req, res) => {

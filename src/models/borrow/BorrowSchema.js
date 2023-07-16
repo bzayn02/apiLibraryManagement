@@ -28,6 +28,9 @@ const borrowSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  isReviewGiven: {
+    type: mongoose.Types.ObjectId,
+  },
 });
 
 export default mongoose.model('Borrow', borrowSchema);

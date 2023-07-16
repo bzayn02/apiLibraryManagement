@@ -1,10 +1,14 @@
 //////////////////////////------APIs------/////////////////////
 
-@rootAPI = http://localhost:8000
-@userAPI = {{rootAPI}}/api/v1/user
-@bookAPI = {{rootAPI}}/api/v1/book
+@rootAPI = http://localhost:8000/api/v1
+@userAPI = {{rootAPI}}/user
+@bookAPI = {{rootAPI}}/book
 
 @borrowAPI = {{bookAPI}}/borrow
+
+@reviewAPI ={{rootAPI}}/review
+
+@
 
 ### Server Testing
 GET {{rootAPI}}
@@ -67,6 +71,11 @@ GET {{borrowAPI}}
 Authorization: 649f6640a26088c3692551a7
 
 
+
+### Review APIs
+
+### Get Reviews
+GET {{reviewAPI}}
 
 
 
